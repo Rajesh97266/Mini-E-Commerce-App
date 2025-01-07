@@ -36,3 +36,14 @@ Save the tested api routes in thunder client
 2.In the productModel.js file create a schema
 3.Create a model using mongoose.model method
 4.Export the model
+
+//Building the get products api
+1.Create a getProducts method in the productController.js file
+2.In the getProducts method get all the products from the database
+3.Send the products in the response
+4.Test the api using thunder client
+
+//Create a folder called data and create a product.json file with some products(Dummy Data)
+
+//Building the get single product api
+
