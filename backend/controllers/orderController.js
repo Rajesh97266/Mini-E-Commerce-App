@@ -8,6 +8,7 @@ exports.createOrder = async (req, res) => {
     0
   )).toFixed(2);
   const status = "Pending";
+  console.log(amount);
 
   //Create a new order in the database
   const order = await orderModel.create({
