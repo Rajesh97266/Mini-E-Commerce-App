@@ -46,4 +46,15 @@ Save the tested api routes in thunder client
 //Create a folder called data and create a product.json file with some products(Dummy Data)
 
 //Building the get single product api
+1.Create a getSingleProduct method in the productController.js file
+2.In the getSingleProduct method get a single product from the database
+3.Send the product in the response
+4.Test the api using thunder client
 
+//Building the create order api
+1.Create a createOrder method in the orderController.js file
+2.In the createOrder method get the cartItems from the request body
+3.Get the amount from the cartItems
+4.Create a new order in the database
+5.Send the order in the response
+6.Test the api using thunder client
