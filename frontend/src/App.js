@@ -1,9 +1,12 @@
 import React from 'react'
 import './App.css'
+import Home from './pages/Home'
 
 const App = () => {
   return (
-   <h1>Mini E-Commerce</h1>
+   <div className="App">
+   <Home />
+   </div>
   )
 }
 
