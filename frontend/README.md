@@ -20,3 +20,13 @@
 
 //Adding search to get products api
 
+1.Updated App.js
+2.By using the get products api it has been modified to get the products based on the searched keyword by using regix
+
+//Adding product details page
+
+1.Added product details page
+2.Updated App.js
+3.Created a route for the product details page 
+4.using get single product api that api has been integrated 
+
