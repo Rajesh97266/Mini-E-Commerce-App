@@ -14,18 +14,24 @@ export default function ProductDetail({ cartItems, setCartItems }) {
   }, []);
 
   function addToCart() {
-    const itemsExist = cartItems.find(
-      (item) => item.product._id === product._id
-    );
-    if (!itemsExist) {
-      const newItem = {
-        product,
-        qty,
-      };
+    const itemExist = cartItems.find((item) => item.product._id === product._id);
+    if (!itemExist) {
+      const newItem = { product, qty };
       setCartItems((state) => [...state, newItem]);
-      toast.success("Product added to cart");
-    } else {
-      toast.error("Product already exist in cart");
+      toast.success("Cart Item added succesfully!");
+    }
+  }
+
+  function increaseQty() {
+    if (product.stock === qty) {
+      return;
+    }
+    setQty((state) => state + 1);
+  }
+
+  function decreaseQty() {
+    if (qty > 1) {
+      setQty((state) => state - 1);
     }
   }
 
@@ -59,7 +65,9 @@ export default function ProductDetail({ cartItems, setCartItems }) {
 
             <p id="product_price">${product.price}</p>
             <div className="stockCounter d-inline">
-              <span className="btn btn-danger minus">-</span>
+              <span className="btn btn-danger minus" onClick={decreaseQty}>
+                -
+              </span>
 
               <input
                 type="number"
@@ -68,11 +76,14 @@ export default function ProductDetail({ cartItems, setCartItems }) {
                 readOnly
               />
 
-              <span className="btn btn-primary plus">+</span>
+              <span className="btn btn-primary plus" onClick={increaseQty}>
+                +
+              </span>
             </div>
             <button
               type="button"
               onClick={addToCart}
+              disabled={product.stock == 0}
               id="cart_btn"
               className="btn btn-primary d-inline ml-4"
             >
@@ -80,7 +91,6 @@ export default function ProductDetail({ cartItems, setCartItems }) {
             </button>
 
             <hr />
-
             <p>
               Status:{" "}
               <span

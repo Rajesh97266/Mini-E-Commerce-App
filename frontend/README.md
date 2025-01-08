@@ -39,6 +39,16 @@
 4.Logic for adding the product has been implemented inside product details page
 
 //Toast notification
+1.Install react-toastify
+2.Added react-toastify in the frontend app.js above the header
+3.Added toastify in the product details page
+
+
+//Increase and decrease cart items functionality
+1.Added increase and decrease cart items functionality in the product details page
+
+//Creating Cart Page 
+
 
 
 

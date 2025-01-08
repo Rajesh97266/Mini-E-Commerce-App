@@ -16,7 +16,7 @@ const App = () => {
     <div className="App">
       <Router>
         <div>
-          <ToastContainer theme="dark"/>
+          <ToastContainer theme="dark" position="top-center"/>
           <Header cartItems={cartItems}/>
         </div>
         <Routes>
