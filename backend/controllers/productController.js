@@ -2,8 +2,16 @@ const ProductModel = require("../models/productModel");
 
 //Get all products api
 exports.getProducts = async (req, res) => {
+
   try {
-    const products = await ProductModel.find({});
+    const { keyword } = req.query; // Extract the keyword from query parameters
+
+    // Build the search condition
+    const searchCondition = keyword
+      ? { name: { $regex: keyword, $options: "i" } } // Case-insensitive regex search
+      : {}; // Fetch all products if no keyword is provided
+
+    const products = await ProductModel.find(searchCondition);
     res.json({
       success: true,
       message: "Get Products Working",
