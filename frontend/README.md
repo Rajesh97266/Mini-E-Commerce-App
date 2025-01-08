@@ -48,6 +48,13 @@
 1.Added increase and decrease cart items functionality in the product details page
 
 //Creating Cart Page 
+1.Created cart page
+2.Added cart page in the app.js
+3.Created a route for the cart page
+4.In header added a link to the cart page
+
+//Showing Cart List 
+
 
 
 

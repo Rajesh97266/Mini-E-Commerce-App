@@ -1,4 +1,5 @@
 const orderModel = require("../models/orderModel");
+const productModel = require("../models/productModel");
 
 //Create order api - /api/v1/order
 exports.createOrder = async (req, res) => {
@@ -16,6 +17,16 @@ exports.createOrder = async (req, res) => {
     amount,
     status,
   })
+
+  // Updating Product Stock
+  cartItems.forEach(async (item) => {
+    const product = await productModel.findById(item.product._id);
+    product.stock -= item.qty;
+    await product.save();
+  });
+
+
+
   res.json({
     success: true,
     order

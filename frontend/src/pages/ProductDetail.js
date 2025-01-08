@@ -19,6 +19,8 @@ export default function ProductDetail({ cartItems, setCartItems }) {
       const newItem = { product, qty };
       setCartItems((state) => [...state, newItem]);
       toast.success("Cart Item added succesfully!");
+    } else {
+      toast.error("Item already exist in cart!");
     }
   }
 
@@ -83,7 +85,7 @@ export default function ProductDetail({ cartItems, setCartItems }) {
             <button
               type="button"
               onClick={addToCart}
-              disabled={product.stock == 0}
+              disabled={Number(product.stock) === 0}
               id="cart_btn"
               className="btn btn-primary d-inline ml-4"
             >
