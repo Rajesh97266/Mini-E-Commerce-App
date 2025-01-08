@@ -29,4 +29,17 @@
 2.Updated App.js
 3.Created a route for the product details page 
 4.using get single product api that api has been integrated 
+5.Updated the product details page
+
+//Create cart functionality
+
+1.Created a state for the cart items in app.js file 
+2.Passed that value to header component
+3.Pass both the cartitems and setcartitems to the product details page
+4.Logic for adding the product has been implemented inside product details page
+
+//Toast notification
+
+
+
 

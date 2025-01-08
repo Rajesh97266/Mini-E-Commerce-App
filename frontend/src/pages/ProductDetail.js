@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
-export default function ProductDetail() {
+import {toast} from 'react-toastify';
+export default function ProductDetail({ cartItems, setCartItems }) {
   const [product, setProduct] = useState(null);
+  const [qty, setQty] = useState(1);
   const { id } = useParams();
   useEffect(() => {
     fetch(process.env.REACT_APP_API_URL + "/products/" + id)
@@ -10,6 +12,23 @@ export default function ProductDetail() {
         setProduct(res.product);
       });
   }, []);
+
+  function addToCart() {
+    const itemsExist = cartItems.find(
+      (item) => item.product._id === product._id
+    );
+    if (!itemsExist) {
+      const newItem = {
+        product,
+        qty,
+      };
+      setCartItems((state) => [...state, newItem]);
+      toast.success("Product added to cart");
+    } else {
+      toast.error("Product already exist in cart");
+    }
+  }
+
   return (
     product && (
       <div className="container container-fluid">
@@ -45,7 +64,7 @@ export default function ProductDetail() {
               <input
                 type="number"
                 className="form-control count d-inline"
-                value="1"
+                value={qty}
                 readOnly
               />
 
@@ -53,6 +72,7 @@ export default function ProductDetail() {
             </div>
             <button
               type="button"
+              onClick={addToCart}
               id="cart_btn"
               className="btn btn-primary d-inline ml-4"
             >
